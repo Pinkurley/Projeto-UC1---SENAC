@@ -398,8 +398,8 @@ def main():
                 case 'S':
                     menu('ALTERAR/RETIRAR NOTA')
                     menu_aluno(parametro_alterar_retirar_nota)
-                    for indice in range(len(alunos[parametro_alterar_retirar_nota]["notas"])):
-                        print(f'{indice+1}º nota: {(alunos[parametro_alterar_retirar_nota]["notas"])[indice]}')
+                    for indice, nota in enumerate(alunos[parametro_alterar_retirar_nota]["notas"]):
+                        print(f'{indice+1}º nota: {nota:0.1f}')
                     nota_posicao_temporaria = input('\nQual nota deseja alterar/retirar: \n')
                     if ler_inteiro(nota_posicao_temporaria, alterar_retirar_nota, parametro_alterar_retirar_nota) == True:
                         nota_posicao = int(nota_posicao_temporaria) - 1
@@ -466,8 +466,8 @@ def main():
                 case 'S':
                     menu('MOSTRAR NOTAS')
                     menu_aluno(parametro_mostrar_notas)
-                    for indice in range(len(alunos[parametro_mostrar_notas]["notas"])):
-                        print(f'{indice+1}º nota: {(alunos[parametro_mostrar_notas]["notas"])[indice]:0.1f}')
+                    for indice, nota in enumerate(alunos[parametro_mostrar_notas]["notas"]):
+                        print(f'{indice+1}º nota: {nota:0.1f}')
                     sleep(2)
                     retorno('mostrar_notas', parametro_mostrar_notas, 'retorno_2')
                 case 'N':
