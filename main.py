@@ -40,9 +40,7 @@ def main():
         else:
             try:
                 verific_string = int(informacao_input)
-                if funcao_retorno == cadastrar_aluno:
-                    invalidez(funcao_retorno, None, None, None)
-                elif funcao_retorno == login:
+                if funcao_retorno == cadastrar_aluno or funcao_retorno == login:
                     invalidez(funcao_retorno, None, None, None)
                 else:
                     invalidez(funcao_retorno, informacao_funcao, None, None)
@@ -69,7 +67,7 @@ def main():
         except ValueError:
             if funcao_retorno_3 == alterar_retirar_nota:
                 invalidez(funcao_retorno_3, informacao_funcao_3, None, None)
-            if funcao_retorno_3 == adicionar_nota:
+            else:
                 print('A nota só pode ser um número...')
                 sleep(3)
             
@@ -133,16 +131,16 @@ def main():
         menu('LOGIN')
         professor = input('\nUsuário: ').strip().lower().capitalize()
         if ler_string(professor, login, None) == True:
-                senha = input('\nSenha: ')
-                if ler_inteiro(senha, login, None) == True:
-                    qntd_professor = 0
-                    for posicao in range(len(professores)):
-                        if professores[posicao]["usuario"] == professor and professores[posicao]["senha"] == int(senha):
-                            opcao(None, 'primeira_opcao')
-                        else:
-                            qntd_professor += 1
-                    if qntd_professor == len(professores):
-                        invalidez(login, None, None, None)
+            senha = input('\nSenha: ')
+            if ler_inteiro(senha, login, None) == True:
+                qntd_professor = 0
+                for posicao in range(len(professores)):
+                    if professores[posicao]["usuario"] == professor and professores[posicao]["senha"] == int(senha):
+                        opcao(None, 'primeira_opcao')
+                    else:
+                        qntd_professor += 1
+                if qntd_professor == len(professores):
+                    invalidez(login, None, None, None)
     
     def opcao(parametro_aluno, qual_opcao):
         if qual_opcao == 'segunda_pergunta':
